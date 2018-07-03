@@ -5,7 +5,7 @@
 //  Created by Jeremy Bannister on 7/2/18.
 //
 
-import Geometry3DValueTypes
+@_exported import Geometry3DValueTypes
 
 public indirect enum Object3DEnum {
   // Primitives
