@@ -16,10 +16,10 @@ public struct Cube: Object3D, Equatable {
     self.size = size
   }
   
-  public var asObject3DEnum: Object3DEnum {
+  public var asRawObject3D: RawObject3D {
     return .cube(position: position, size: size)
   }
 }
 
-extension Cube: Position3DShortcuts { }
-extension Cube: Size3DShortcuts { }
+extension Cube: HasPosition3D { }
+extension Cube: HasSize3D { }

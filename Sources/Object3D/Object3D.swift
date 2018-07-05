@@ -7,17 +7,19 @@
 
 @_exported import Geometry3DValueTypes
 
-public protocol Object3D: Equatable, Object3DEnumConvertible, Position3DShortcuts {
+// MARK: - --> Initial Declaration <--
+public protocol Object3D: RawObject3DConvertible, HasPosition3D {
   var position: Position3D { get set }
 }
 
+// MARK: - Translation
 extension Object3D {
-  public func translated (by vector: Position3D) -> Self {
+  public func translated (by vector: Vector3D) -> Self {
     var copy = self
-    copy.position = copy.position + vector
+    copy.position = copy.position.translated(by: vector)
     return copy
   }
   public func translated (by x: Double, _ y: Double, _ z: Double) -> Self {
-    return translated(by: Position3D(x: x, y: y, z: z))
+    return translated(by: .init(x, y, z))
   }
 }

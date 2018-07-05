@@ -20,7 +20,7 @@ public struct Cylinder: Object3D, Equatable {
     self.depth = depth
   }
   
-  public var asObject3DEnum: Object3DEnum {
+  public var asRawObject3D: RawObject3D {
     return .cylinder(position: position, lowerRadius: lowerRadius, upperRadius: upperRadius, depth: depth)
   }
 }
