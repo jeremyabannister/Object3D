@@ -23,3 +23,10 @@ extension Object3D {
     return translated(by: .init(x, y, z))
   }
 }
+
+// MARK: - Map
+extension Array where Element: Object3D {
+  public var mapToRawObject3D: [RawObject3D] {
+    return self.map({ $0.asRawObject3D })
+  }
+}
