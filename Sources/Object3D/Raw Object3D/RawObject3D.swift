@@ -11,6 +11,7 @@ public indirect enum RawObject3D {
   // Primitives
   case cube (position: Position3D, size: Size3D)
   case cylinder (position: Position3D, lowerRadius: Double, upperRadius: Double, depth: Double)
+  case polyhedron (position: Position3D, vertices: [Position3D], faces: [[Int]])
   
   // Composites
   case union (position: Position3D, rawObjects: [RawObject3D])
@@ -32,6 +33,7 @@ extension RawObject3D {
       switch self {
       case .cube(position: let position, size: _): return position
       case .cylinder(position: let position, lowerRadius: _, upperRadius: _, depth: _): return position
+      case .polyhedron(position: let position, vertices: _, faces: _): return position
       case .union(position: let position, rawObjects: _): return position
       case .difference(position: let position, original: _, subtractions: _): return position
       }
@@ -40,6 +42,7 @@ extension RawObject3D {
       switch self {
       case .cube(position: _, size: let size): self = .cube(position: newValue, size: size)
       case .cylinder(position: _, lowerRadius: let lowerRadius, upperRadius: let upperRadius, depth: let depth): self = .cylinder(position: newValue, lowerRadius: lowerRadius, upperRadius: upperRadius, depth: depth)
+      case .polyhedron(position: _, vertices: let vertices, faces: let faces): self = .polyhedron(position: newValue, vertices: vertices, faces: faces)
       case .union(position: _, rawObjects: let rawObjects): self = .union(position: newValue, rawObjects: rawObjects)
       case .difference(position: _, original: let original, subtractions: let subtractions): self = .difference(position: newValue, original: original, subtractions: subtractions)
       }
