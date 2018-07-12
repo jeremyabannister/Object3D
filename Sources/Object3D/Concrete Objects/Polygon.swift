@@ -31,7 +31,7 @@ extension Polygon {
         face[0] = $0
         face[1] = (face[0] + 1).cycled(toWithin: 0, vertices.count)
         face[2] = face[1] + vertices.count
-        face[3] = (face[2] - 1).cycled(toWithin: 0, vertices.count)
+        face[3] = (face[2] - 1).cycled(toWithin: vertices.count, 2 * vertices.count)
         return face
       })
     }
