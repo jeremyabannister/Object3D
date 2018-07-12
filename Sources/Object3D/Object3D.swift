@@ -8,9 +8,7 @@
 @_exported import Geometry3DValueTypes
 
 // MARK: - --> Initial Declaration <--
-public protocol Object3D: RawObject3DConvertible, HasPosition3D {
-  var position: Position3D { get set }
-}
+public protocol Object3D: RawObject3DConvertible, HasPosition3D { }
 
 // MARK: - Translation
 extension Object3D {
